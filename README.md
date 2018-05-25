@@ -6,3 +6,6 @@ A Small but Useful discord bot :D
 * Autorole
 * Welcome Message
 * Moderation
+
+# Links
+[Support Server](https://discord.gg/r5jTgPy)
