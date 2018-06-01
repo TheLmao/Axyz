@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import random, os
+from pyfiglet import Figlet
 import config
 from discord.ext.commands.cooldowns import BucketType
 import json
@@ -23,6 +24,14 @@ class main():
         except:
             await self.bot.send_message(channel, mst)
             await self.bot.say("Contact Sent! But we were unable to get an invite to your server!")
+
+    @commands.command()
+    async def ascii(self, *, text : str):
+        """Print some ascii!"""
+        future = self.bot.loop.run_in_executor(None, self.f.renderText, text)
+        result = await future
+
+        await self.bot.say("```"+result+"```")
 
     @commands.command(pass_context=True)
     async def help(self, ctx, cmd=""):
