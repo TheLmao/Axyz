@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
-import random, os
 from pyfiglet import Figlet
+import random, os
 import config
 from discord.ext.commands.cooldowns import BucketType
 import json
@@ -26,8 +26,27 @@ class main():
             await self.bot.say("Contact Sent! But we were unable to get an invite to your server!")
 
     @commands.command()
+    async def cat(self):
+        """"""
+        resp = await self.session.get("http://random.cat/meow")
+        image_url = await resp.json()
+        resp.close()
+        image_url = image_url["file"]
+
+        await self.bot.say(image_url)
+        
+    @commands.command()
+    async def dog(self):
+        """"""
+        resp = await self.session.get("https://random.dog/woof.json")
+        image_url = await resp.json()
+        resp.close()
+        image_url = image_url["url"]
+
+        await self.bot.say(image_url)
+    @commands.command()
     async def ascii(self, *, text : str):
-        """Print some ascii!"""
+        """"""
         future = self.bot.loop.run_in_executor(None, self.f.renderText, text)
         result = await future
 
