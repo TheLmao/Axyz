@@ -3,7 +3,9 @@ from discord.ext import commands
 import random, os
 import config
 from discord.ext.commands.cooldowns import BucketType
+from pyfiglet import Figlet
 import json
+import aiohttp
 import asyncio
 import time
 import checks
@@ -11,6 +13,8 @@ import checks
 class main():
     def __init__(self, bot):
         self.bot = bot
+        self.session = aiohttp.ClientSession()
+        self.f = Figlet(font='slant')
 
     @commands.cooldown(1, 20, BucketType.server)
     @commands.command(pass_context=True)
