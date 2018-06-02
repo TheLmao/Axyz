@@ -303,13 +303,13 @@ class main():
 
         await self.bot.say(image_url)
 
-    @commands.command(pass_context=True)
-    async def ascii(self, ctx, *, text : str):
-        """"""
-        future = self.bot.loop.run_in_executor(None, self.f.renderText, text)
-        result = await future
+    # @commands.command(pass_context=True)
+    # async def ascii(self, ctx, *, text : str):
+    #     """"""
+    #     future = self.bot.loop.run_in_executor(None, self.f.renderText, text)
+    #     result = await future
 
-        await self.bot.say("```"+result+"```")
+    #     await self.bot.say("```"+result+"```")
     
     @commands.command(pass_context=True)
     async def bank(self, ctx, btype="", b=""):
