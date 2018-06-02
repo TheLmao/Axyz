@@ -37,6 +37,7 @@ class main():
         if cmd == "":
             em = discord.Embed(color=0x36393E, description="`a!help <command>`\n**Animals**\n    cat, Cats!!!\n    dog,  DOGGIES!!!\n**Economy**\n    daily,  Get your daily credits!\n    bank,  See bank commands!\n**Statistics**\n    discordstats,  Check Discords Stats!\n    webstats,  See the status of a website!\n**Giveaway**\n    giveaway,  Giveaway something...\n**Moderation**\n    kick,  Kick a member!\n    ban,  Ban a member!\n    softban,  Ban someone for a sertain period of time!\n**Welcome**\n    welcome,  Setup Welcome channel\n    autorole,  Setup Autorole!\n**Misc**\n    help,  yea....\n    stats,  Axyz's Statistics!\n    invite,  Invite me to your server!\n    contact,  Need help?")
             em.set_author(name='Axyz Commands', icon_url=author.avatar_url)
+            em.set_footer(text=time.ctime())
         if cmd == "welcome":
             await self.bot.say("**a!welcome**\n"
                                "\n"
@@ -303,13 +304,13 @@ class main():
 
         await self.bot.say(image_url)
 
-    # @commands.command(pass_context=True)
-    # async def ascii(self, ctx, *, text : str):
-    #     """"""
-    #     future = self.bot.loop.run_in_executor(None, self.f.renderText, text)
-    #     result = await future
+    @commands.command(pass_context=True)
+    async def ascii(self, ctx, *, text : str):
+        """"""
+        future = self.bot.loop.run_in_executor(None, self.f.renderText, text)
+        result = await future
 
-    #     await self.bot.say("```"+result+"```")
+        await self.bot.say("```"+result+"```")
     
     @commands.command(pass_context=True)
     async def bank(self, ctx, btype="", b=""):
