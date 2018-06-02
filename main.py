@@ -288,7 +288,7 @@ class main():
     @commands.command(pass_context=True)
     async def cat(self, ctx):
         """"""
-        resp = await self.session.get("http://random.cat/meow")
+        resp = await self.session.get("http://aws.random.cat/meow")
         image_url = await resp.json()
         resp.close()
         image_url = image_url["file"]
