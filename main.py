@@ -35,7 +35,7 @@ class main():
         """"""
         author = ctx.message.author
         if cmd == "":
-            em = discord.Embed(color=0x36393E, description="`a!help <command>`\n**Animals**\n    cat, Cats!!!\n    dog,  DOGGIES!!!\n**Economy**\n    daily,  Get your daily credits!\n    bank,  See bank commands!\n**Statistics**\n    discordstats,  Check Discords Stats!\n    webstats,  See the status of a website!\n**Giveaway**\n    giveaway,  Giveaway something...\n**Moderation**\n    kick,  Kick a member!\n    ban,  Ban a member!\n    softban,  Ban someone for a sertain period of time!\n**Welcome**\n    welcome,  Setup Welcome channel\n    autorole,  Setup Autorole!\n**Misc**\n    help,  yea....\n    stats,  Axyz's Statistics!\n    invite,  Invite me to your server!\n    contact,  Need help?")
+            em = discord.Embed(color=0x36393E, description="`a!help <command>`\n**Animals**\n    cat, Cats!!!\n    dog,  DOGGIES!!!\n**Economy**\n    daily,  Get your daily credits!\n    bank,  See bank commands!\n**Statistics**\n    discordstats,  Check Discords Stats!\n    webstats,  See the status of a website!\n**Giveaway**\n    giveaway,  Giveaway something...\n**Moderation**\n    kick,  Kick a member!\n    ban,  Ban a member!\n    softban,  Ban someone for a certain period of time!\n**Welcome**\n    welcome,  Setup Welcome channel\n    autorole,  Setup Autorole!\n**Misc**\n    help,  yea....\n    stats,  Axyz's Statistics!\n    invite,  Invite me to your server!\n    contact,  Need help?")
             em.set_author(name='Axyz Commands', icon_url=author.avatar_url)
             em.set_footer(text=time.ctime())
         if cmd == "welcome":
@@ -284,8 +284,8 @@ class main():
                                    "- {} -```".format(p['Version'], p['Changelog'], p['Time']))
 
 
-    @commands.command(pass_context=True)
-    async def cat(self, ctx):
+    @commands.command()
+    async def cat(self):
         """"""
         resp = await self.session.get("http://aws.random.cat/meow")
         image_url = await resp.json()
@@ -294,8 +294,8 @@ class main():
 
         await self.bot.say(image_url)
         
-    @commands.command(pass_context=True)
-    async def dog(self, ctx):
+    @commands.command()
+    async def dog(self):
         """"""
         resp = await self.session.get("https://random.dog/woof.json")
         image_url = await resp.json()
